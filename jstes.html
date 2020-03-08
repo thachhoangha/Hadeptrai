@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+
+<body>
+    <div class="container" ng-app='myApp'>
+        <div ng-controller='myController'>
+            <label for="">So a</label><br>
+            <input type="text" name="" id="soa" ng-model='soa'><br>
+            <label for="">So b</label><br>
+            <input type="text" name="" id="sob" ng-model='sob'><br>
+            <select name="" id="" ng-model='pheptinh'>
+                <option value="1" >cong</option>
+                <option value="2">tru</option>
+                <option value="3">nhan</option>
+                <option value="4">chia</option>
+            </select><br>
+            <button class="btn btn-primary" ng-click='bang()'>Bằng</button>
+            <h2>Kết quả là: {{ketqua}}</h2>
+        </div>
+    </div>
+    <script>
+        var tinhapp = angular.module('myApp', []);
+        tinhapp.controller('myController', function myController($scope) {
+            $scope.bang = function () {
+                if ($scope.pheptinh == 1) {
+                    $scope.ketqua = parseInt($scope.soa) + parseInt($scope.sob);
+                } else if ($scope.pheptinh == 2) {
+                    $scope.ketqua = parseInt($scope.soa) - parseInt($scope.sob);
+                } else if ($scope.pheptinh == 3) {
+                    $scope.ketqua = parseInt($scope.soa) * parseInt($scope.sob);
+                } else {
+                    $scope.ketqua = parseInt($scope.soa) / parseInt($scope.sob);
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>
